@@ -1,0 +1,26 @@
+.seccionVisible {
+    background-color: rgb(33, 34, 34);
+    width: 100vw;
+    height: 100vh;
+}
+
+.general {
+    width: 75%;
+    height: 75%;
+}
+
+.general1 {
+    background-color: blue;
+}
+
+.general2{ 
+    background-color: green;
+}
+
+.general3 {
+    background-color: pink;
+}
+
+.generalFinal {
+    background-color: red;
+}
