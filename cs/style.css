@@ -1,26 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .seccionVisible {
-    background-color: rgb(33, 34, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
+
+
+    background-color: rgb(33, 34, 34);
+}
+
+button {
+    height: 10%;
+    width: 30%;
+    justify-self: flex-end;
+    align-self: center;
+
+    font-size: x-large;
 }
 
 .general {
-    width: 75%;
-    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
 }
+
+/* Pantalla 1  Empezar a jugar */
 
 .general1 {
     background-color: blue;
 }
 
+
+/* Pantalla 2  Seleccion personajes */
+
 .general2{ 
-    background-color: green;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(30, 115, 155);
 }
+
+.personajes {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.personajeImg {
+    height: 20em;
+}
+
+.reyImg{
+    border-radius: 10em;
+}
+
+/* Pantalla 3  Batalla */
 
 .general3 {
     background-color: pink;
 }
 
-.generalFinal {
+/* Pantalla 4 (final)  Ganador */
+
+.general4 {
     background-color: red;
 }
