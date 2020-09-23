@@ -7,6 +7,7 @@
 // 15 commits como minimo
 
 
+// asignamos pantallaX a los divs de las diferentes pantallas con su id
 
 let pantalla1 = document.getElementById("fase1");
 let pantalla2 = document.getElementById("fase2");
@@ -67,21 +68,27 @@ let Daenerys = new Luchador ("Daenerys Targaryen", 100, 100, 10, "Rocadragón", 
 let Joffrey = new Luchador ("Joffrey Baratheon", 100, 1, 1, "Desembarco del Rey", 1);
 
 
+// asignamos personajeX a los divs de las diferentes imagenes de luchadores con su id
 let personaje1 = document.getElementById("personaje1");
 let personaje2 = document.getElementById("personaje2");
 let personaje3 = document.getElementById("personaje3");
 let personaje4 = document.getElementById("personaje4");
 
 
+// creamos una funcion para que al pulsar jugador1 sobre un pj salte al jugador2.
 const pulsaPersonaje = (ev) => {
-    let seleccion = ev.target.id;
+
+    let seleccion = ev.target.id; 
 
     if(escoger1 == "") { //si escoger1 está vacio, j1 no ha elegido todavía
+
         escoger1 = seleccion; 
 
         let textoSeleccion = document.getElementById("textoSeleccion");
         textoSeleccion.innerText = "Jugador 2, elige personaje";
+
     }else{
+
         escoger2 = seleccion;
         cambiaPantalla(3);
     }
@@ -101,8 +108,6 @@ textoSeleccion.innerText = "Jugador 1, elige personaje";
 
 
 const idToPj = (id) => {
-    
-    // let nombrePersonaje;
 
     switch (id) {
 
@@ -122,5 +127,10 @@ const idToPj = (id) => {
             "No has escogido un personaje"
         break;
     }
+
 }
 
+// escoger1 = idToPj(ev.target.id);
+// escoger2 = idToPj(ev.target.id);
+
+console.log(personaje1);
