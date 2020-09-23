@@ -58,8 +58,15 @@ button {
     height: 80%;
 }
 
+
 .personajeImg {
     height: 20em;
+    filter: saturate(0);
+    transition: filter 0.5s;
+}
+
+.personajeImg:hover {
+    filter: saturate(1);
 }
 
 .reyImg{
