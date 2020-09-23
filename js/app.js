@@ -45,11 +45,11 @@ const cambiaPantalla = (valor) => {
 
     };
 
-    if (valor === 4) {
+    // if (valor === 4) {
 
-        reset();
+    //     reset();
 
-    };
+    // };
 
 
 
@@ -75,13 +75,12 @@ let turno = 1;
 
 class Luchador {
 
-    constructor (nombre, vida, fuerza, defensa, nacionalidad, suerte, imagen){
+    constructor (nombre, vida, fuerza, defensa, suerte, imagen){
 
         this.nombre = nombre;
         this.vida = vida;
         this.fuerza = fuerza;
         this.defensa = defensa;
-        this.nacionalidad = nacionalidad;
         this.suerte = suerte;
         
         this.imagen = imagen;
@@ -89,21 +88,67 @@ class Luchador {
 
 
 
-    golpear = () => {
-
-        turno++;
+    golpear = (atacado) => {
+        
+        let damage = this.fuerza - atacado.defensa;
+        
+        if (damage < 0) {
+            damage = 0;
+        }
+        
+        atacado.vida = atacado.vida - damage;
+        
+        console.log("Daño: ", damage)
     }
 }
   
-console.log(turno)
+//
 
-let Daenerys = new Luchador ("Daenerys Targaryen", 100, 100, 10, "Rocadragón", 8, "/img/daenerys2.png");
+const pulsaAtacar = () => {
 
-let Arya = new Luchador ("Arya Stark", 100, 70, 90, "Invernalia", 10, "/img/arya2.png");
+    turno++;
 
-let Joffrey = new Luchador ("Joffrey Baratheon", 100, 1, 1, "Desembarco del Rey", 1, "/img/joffrey1.jpg");
+    if (turno % 2 === 0) {
+        
+        player2.golpear(player1);
+        muestraPersonaje();
 
-let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 90, 40, "Más allá del muro", 6, "/img/rey1.jpg");
+    } else {
+
+        player1.golpear(player2);
+        muestraPersonaje();
+    }
+    
+
+
+    //el boton de atacar se mostrará si la vida es mayor que 0
+    if (player1.vida >= 1 || player2.vida >= 1) {
+
+        let botonAtacar = document.getElementById("botonAtacar").style.display = "block";
+
+    }else {
+
+        let botonAtacar = document.getElementById("botonAtacar").style.display = "none";
+
+    }
+
+
+
+    //el botón de fase3 solo se mostrará si la vida de pj1 o pj2 llega a 0
+    if (player1.vida <= 0 || player2.vida <= 0) {
+
+        cambiaPantalla(4);
+    } 
+
+}
+
+let Daenerys = new Luchador ("Daenerys Targaryen", 100, 80, 10, 8, "/img/daenerys2.png");
+
+let Arya = new Luchador ("Arya Stark", 100, 70, 90, 10, "/img/arya2.png");
+
+let Joffrey = new Luchador ("Joffrey Baratheon", 100, 1, 1, 1, "/img/joffrey1.jpg");
+
+let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 90, 40, 6, "/img/rey1.jpg");
 
 
 
@@ -206,28 +251,6 @@ const muestraPersonaje = (ev) => {
     document.getElementById("nombreJugador2").innerText = player2.nombre;
     document.getElementById("vidaJugador2").innerText = player2.vida;
 
-    
-    //el boton de atacar se mostrará si la vida es mayor que 0
-    if (player1.vida >= 1 || player2.vida >= 1) {
-
-        let botonAtacar = document.getElementById("botonAtacar").style.display = "block";
-
-    }else {
-
-        let botonAtacar = document.getElementById("botonAtacar").style.display = "none";
-
-    }
-
-    //el botón de fase3 solo se mostrará si la vida de pj1 o pj2 llega a 0
-    if (player1.vida === 0 || player2.vida === 0) {
-
-        let boton3 = document.getElementById("boton3").style.display = "block";
-
-    } else {
-        
-        let boton3 = document.getElementById("boton3").style.display = "none";
-
-    }
 }
 
 
