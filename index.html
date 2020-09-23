@@ -26,20 +26,18 @@
 
         <div class="general general2">
 
-            <button onclick="cambiaPantalla(3)">¡A LUCHAR!</button>
-            
             <h1>Selección de personaje</h1>
             <h2>Escoge un guerrero para librar la batalla</h2>
 
-            <h3 id="textoSeleccion">asd</h3>
+            <h3 id="textoSeleccion"></h3>
 
             <div class="personajes">
 
-                <div><img src="img/daenerys.png" class="personajeImg" id ="personaje1" alt=""></div>
+                <div><img src="img/daenerys.png" class="personajeImg daenerysImg" id ="personaje1" alt=""></div>
                 
-                <div><img src="img/arya.png" class="personajeImg" id ="personaje2" alt=""></div>
+                <div><img src="img/arya.png" class="personajeImg aryaImg" id ="personaje2" alt=""></div>
 
-                <div><img src="img/joffrey.png" class="personajeImg" id ="personaje3" alt=""></div>
+                <div><img src="img/joffrey.png" class="personajeImg joffreyImg" id ="personaje3" alt=""></div>
 
                 <div><img src="img/rey.jpg" class="personajeImg reyImg" id ="personaje4" alt=""></div>
 
@@ -54,10 +52,25 @@
 
         <div class="general general3">
 
-            <button onclick="cambiaPantalla(4)">Ya tenemos un vencedor</button>
             
-            
+            <div class="columna columna1">
+                
+                <img id="imagenJugador1" src="">
+                <p id="nombreJugador1"></p>
+                <p id="vidaJugador1"></p>
+                
+            </div>
 
+            <button id="boton3" onclick="cambiaPantalla(4)" >Ya tenemos un vencedor</button>
+            
+            <div class="columna columna2">
+                
+                <img id="imagenJugador2" src="">
+                <p id="nombreJugador2"></p>
+                <p id="vidaJugador2"></p>
+                
+            </div>
+            
 
         </div>
 
