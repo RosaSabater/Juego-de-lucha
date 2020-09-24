@@ -34,6 +34,8 @@ class Luchador {
         
         atacado.vida = atacado.vida - damage;
         
+        ganador();
+
         let textoSelBatalla = document.getElementById("textoSelBatalla");
         textoSelBatalla.innerText = 
         (`${this.nombre} ataca a 
@@ -41,7 +43,7 @@ class Luchador {
         ${damage} de daño`);
         
     }
-
+    
 }
 
 
@@ -294,5 +296,20 @@ const reset = () => {
 
 }
 
-// document.getElementById("vidaJugador1").style.width = "10%"
+const ganador = () => {
+    
+    if (player1.vida <= 0) {
+
+        document.getElementById("ganador").src = player1.imagen;
+
+        document.getElementById("textoGanador").innerText = `${player1.nombre}`;
+  
+    } else {
+        
+        document.getElementById("ganador").src = player2.imagen;
+
+        document.getElementById("textoGanador").innerText = `${player2.nombre}`;
+    }
+
+}
 

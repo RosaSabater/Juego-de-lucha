@@ -15,6 +15,16 @@
 
 <body>
 
+    <embed>
+
+        <audio autoplay loop>
+
+            <source src="/audio/cancion.mp3">
+
+        </audio>
+
+    </embed>
+
     <!-- primera pantalla de press start -->
     <section class="seccionVisible" id="fase1">
 
@@ -34,6 +44,7 @@
         <div class="general general2">
 
             <h1 class="texto">Selección de personaje</h1></br></br>
+            
             <h2 class="texto">Escoge un guerrero para librar la batalla</h2></br></br>
 
             <h3 class="texto" id="textoSeleccion"></h3>
@@ -58,7 +69,6 @@
     <section class="seccionVisible" id="fase3" style="display: none">
 
         <div class="general general3">
-
             
             <div class="columna columna1">
                 
@@ -76,7 +86,6 @@
                 
             </div>
 
-
             <div class="columna columna2">
                 
                 <img id="imagenJugador2" src="">
@@ -85,7 +94,6 @@
                 
             </div>
             
-
         </div>
 
     </section>
@@ -95,6 +103,12 @@
     
         <div class="general general4">
 
+            <img id="ganador" src="">
+
+            <p id="textoGanador"></p>
+
+            <p class="texto">ha perdido</p>
+            
             <button id="buttonReset" onclick="cambiaPantalla(1)">Volver a jugar</button>
 
         </div>
