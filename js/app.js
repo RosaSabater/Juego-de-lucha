@@ -176,12 +176,13 @@ const pulsaPersonaje = (ev) => {
     let seleccion = ev.target.id; 
 
     if (player1 === "") { //si player1 está vacio, player1 no ha elegido todavía
+        
+        player1 = idToPj(seleccion);
 
         //se muestra texto cuando jugador 1 ya ha elegido
         let textoSeleccion = document.getElementById("textoSeleccion");
         textoSeleccion.innerText = "Jugador 2, elige personaje";
 
-        player1 = idToPj(seleccion);
 
     }else{
 
@@ -253,14 +254,17 @@ const muestraPersonaje = (ev) => {
 
 }
 
-
+//al hacer click en el botón buttonReset llama a reset
+buttonReset.addEventListener("click", reset)
 
 //reseteo la partida
-// const reset = (ev) => {
+const reset = (ev) => {
 
-//     player1 = "";
-//     player2 = "";
+    player1 = "";
+    player2 = "";
 
-// }
+}
 
+//cuando pulses el boton "Volver a jugar" vuelva a cambiaPantalla(1)
+//y que p1 y p2 se vacíen 
 
