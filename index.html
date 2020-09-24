@@ -6,6 +6,11 @@
     <title>Game of Thrones</title>
 
     <link rel="stylesheet" href="cs/style.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+    </style>
+
 </head>
 
 <body>
@@ -15,7 +20,9 @@
 
         <div class="general general1">
 
-            <button onclick="cambiaPantalla(2)">Presiona para comenzar</button>
+            <img src="img/gameofthrones.png" alt="" class="gameLogo">
+
+            <button class="boton1" onclick="cambiaPantalla(2)">Haz click para comenzar</button>
 
         </div>
 
@@ -26,20 +33,20 @@
 
         <div class="general general2">
 
-            <h1>Selección de personaje</h1>
-            <h2>Escoge un guerrero para librar la batalla</h2>
+            <h1 class="texto">Selección de personaje</h1></br></br>
+            <h2 class="texto">Escoge un guerrero para librar la batalla</h2></br></br>
 
-            <h3 id="textoSeleccion"></h3>
+            <h3 class="texto" id="textoSeleccion"></h3>
 
             <div class="personajes">
 
-                <div><img src="img/daenerys.png" class="personajeImg daenerysImg" id ="personaje1" alt=""></div>
+                <img src="img/daenerys.png" class="personajeImg daenerysImg" id ="personaje1" alt="">
                 
-                <div><img src="img/arya.png" class="personajeImg aryaImg" id ="personaje2" alt=""></div>
+                <img src="img/arya.png" class="personajeImg aryaImg" id ="personaje2" alt="">
 
-                <div><img src="img/joffrey.png" class="personajeImg joffreyImg" id ="personaje3" alt=""></div>
+                <img src="img/joffrey.png" class="personajeImg joffreyImg" id ="personaje3" alt="">
 
-                <div><img src="img/rey.jpg" class="personajeImg reyImg" id ="personaje4" alt=""></div>
+                <img src="img/rey.png" class="personajeImg reyImg" id ="personaje4" alt="">
 
             </div>
 
@@ -61,8 +68,15 @@
                 
             </div>
 
-            <button id="botonAtacar" onclick="pulsaAtacar()" >ATACAR</button>
+            <div class="textBox">            
+                
+                <button id="botonAtacar" onclick="pulsaAtacar()" >ATACAR</button>
             
+                <h1 class="texto" id="textoSelBatalla"></h1>
+                
+            </div>
+
+
             <div class="columna columna2">
                 
                 <img id="imagenJugador2" src="">

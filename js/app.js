@@ -8,6 +8,55 @@
 
 
 
+
+class Luchador {
+
+    constructor (nombre, vida, fuerza, defensa, suerte, imagen){
+
+        this.nombre = nombre;
+        this.vida = vida;
+        this.fuerza = fuerza;
+        this.defensa = defensa;
+        this.suerte = suerte;
+        
+        this.imagen = imagen;
+    }
+
+    //esto es un método ... empieza a atacar p1 a p2
+    //la fuerza de p1 será la fuerza menos la defensa del p2
+    golpear = (atacado) => {
+        
+        let damage = this.fuerza - atacado.defensa;
+        
+        if (damage < 0) {
+            damage = 0;
+        }
+        
+        atacado.vida = atacado.vida - damage;
+        
+        let textoSelBatalla = document.getElementById("textoSelBatalla");
+        textoSelBatalla.innerText = 
+        (`${this.nombre} ataca a 
+        ${atacado.nombre} y le hace 
+        ${damage} de daño`);
+        
+    }
+
+}
+
+
+
+//nombre, vida, fuerza, defensa, suerte, imagen
+let Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "/img/daenerys2.png");
+
+let Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "/img/arya2.png");
+
+let Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "/img/joffrey1.png");
+
+let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "/img/rey1.png");
+
+
+
 // asignamos pantallaX a los divs de las diferentes pantallas con su id
 let pantalla1 = document.getElementById("fase1");
 let pantalla2 = document.getElementById("fase2");
@@ -39,12 +88,17 @@ const cambiaPantalla = (valor) => {
         }
     });
  
-    if (valor === 3) {
+    if (valor === 3) { //si estoy en la batalal de combate muestro pj
  
         muestraPersonaje();
 
     };
 
+    if (valor === 1) { //si estoy en la pantalla1, reseteo
+ 
+        reset();
+
+    };
 
 
     //primero habilitamos la fase a la que queremos ir
@@ -65,36 +119,6 @@ const cambiaPantalla = (valor) => {
 //creo una variable impar para golpear();
 let turno = 1;
 
-
-
-class Luchador {
-
-    constructor (nombre, vida, fuerza, defensa, suerte, imagen){
-
-        this.nombre = nombre;
-        this.vida = vida;
-        this.fuerza = fuerza;
-        this.defensa = defensa;
-        this.suerte = suerte;
-        
-        this.imagen = imagen;
-    }
-
-    //esto es un método ... empieza a atacar p1 a p2
-    //la fuerza de p1 será la fuerza menos la defensa del p2
-    golpear = (atacado) => {
-        
-        let damage = this.fuerza - atacado.defensa;
-        
-        if (damage < 0) {
-            damage = 0;
-        }
-        
-        atacado.vida = atacado.vida - damage;
-        
-        // console.log("Daño: ", damage)
-    }
-}
   
 
 //cada  vez que se llama a pulsaAtacar suma 1
@@ -106,13 +130,14 @@ const pulsaAtacar = () => {
 
     if (turno % 2 === 0) {
         
-        player2.golpear(player1);
+        player1.golpear(player2);
         muestraPersonaje();
 
     } else {
 
-        player1.golpear(player2);
+        player2.golpear(player1);
         muestraPersonaje();
+
     }
     
 
@@ -136,15 +161,8 @@ const pulsaAtacar = () => {
         cambiaPantalla(4);
     } 
 
+
 }
-
-let Daenerys = new Luchador ("Daenerys Targaryen", 100, 80, 10, 8, "/img/daenerys2.png");
-
-let Arya = new Luchador ("Arya Stark", 100, 70, 90, 10, "/img/arya2.png");
-
-let Joffrey = new Luchador ("Joffrey Baratheon", 100, 1, 1, 1, "/img/joffrey1.jpg");
-
-let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 90, 40, 6, "/img/rey1.jpg");
 
 
 
@@ -254,17 +272,27 @@ const muestraPersonaje = (ev) => {
 
 }
 
-//al hacer click en el botón buttonReset llama a reset
-buttonReset.addEventListener("click", reset)
 
-//reseteo la partida
-const reset = (ev) => {
+
+// //reseteo la partida
+const reset = () => {
 
     player1 = "";
     player2 = "";
 
+
+    Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "/img/daenerys2.png");
+
+    Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "/img/arya2.png");
+
+    Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "/img/joffrey1.png");
+
+    Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "/img/rey1.png");
+
+
+    textoSeleccion.innerText = "Jugador 1, elige personaje";
+
 }
 
-//cuando pulses el boton "Volver a jugar" vuelva a cambiaPantalla(1)
-//y que p1 y p2 se vacíen 
+// document.getElementById("vidaJugador1").style.width = "10%"
 
