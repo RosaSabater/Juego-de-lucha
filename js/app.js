@@ -45,12 +45,6 @@ const cambiaPantalla = (valor) => {
 
     };
 
-    // if (valor === 4) {
-
-    //     reset();
-
-    // };
-
 
 
     //primero habilitamos la fase a la que queremos ir
@@ -68,7 +62,7 @@ const cambiaPantalla = (valor) => {
 
 
 
-//creo una variable impar 
+//creo una variable impar para golpear();
 let turno = 1;
 
 
@@ -86,8 +80,8 @@ class Luchador {
         this.imagen = imagen;
     }
 
-
-
+    //esto es un método ... empieza a atacar p1 a p2
+    //la fuerza de p1 será la fuerza menos la defensa del p2
     golpear = (atacado) => {
         
         let damage = this.fuerza - atacado.defensa;
@@ -98,12 +92,14 @@ class Luchador {
         
         atacado.vida = atacado.vida - damage;
         
-        console.log("Daño: ", damage)
+        // console.log("Daño: ", damage)
     }
 }
   
-//
 
+//cada  vez que se llama a pulsaAtacar suma 1
+//si el turno es par golpea p1 a p2, si el turno es impar p2 a p1
+//cada vez que se ataca se actualiza la vida del personaje con muestraPersonaje()
 const pulsaAtacar = () => {
 
     turno++;
@@ -134,7 +130,7 @@ const pulsaAtacar = () => {
 
 
 
-    //el botón de fase3 solo se mostrará si la vida de pj1 o pj2 llega a 0
+    //cuando la vida de p1 o p2 sea menor o igual a 0 cambia a pantalla final
     if (player1.vida <= 0 || player2.vida <= 0) {
 
         cambiaPantalla(4);
@@ -167,6 +163,7 @@ let player2 = "";
 
 
 //el texto en fase2 empezará con Jugador1 eligiendo personaje
+//se mostrará este texto al llegar a la fase2
 let textoSeleccion = document.getElementById("textoSeleccion");
 textoSeleccion.innerText = "Jugador 1, elige personaje";
 
@@ -178,8 +175,9 @@ const pulsaPersonaje = (ev) => {
     //selección será la id de cada personaje
     let seleccion = ev.target.id; 
 
-    if(player1 === "") { //si player1 está vacio, player1 no ha elegido todavía
+    if (player1 === "") { //si player1 está vacio, player1 no ha elegido todavía
 
+        //se muestra texto cuando jugador 1 ya ha elegido
         let textoSeleccion = document.getElementById("textoSeleccion");
         textoSeleccion.innerText = "Jugador 2, elige personaje";
 
@@ -188,17 +186,19 @@ const pulsaPersonaje = (ev) => {
     }else{
 
         player2 = idToPj(seleccion);
-        cambiaPantalla(3);
+        cambiaPantalla(3);//cuando p2 elige cambia de pantalla
 
     }
 
-
+    //si el p2 elige el mismo pj que p1
     if (player2 === player1) {
 
+        //salta un texto en rojo 
         let textoSeleccion = document.getElementById("textoSeleccion");
         textoSeleccion.innerText = "No puedes escoger el mismo guerrero";
         textoSeleccion.style.color = "red"; //no lo vuelvo a poner en black porque no sale otro texto
 
+        //se queda en la misma pantalla
         cambiaPantalla(2);
     }
 }
@@ -256,11 +256,11 @@ const muestraPersonaje = (ev) => {
 
 
 //reseteo la partida
-const reset = (ev) => {
+// const reset = (ev) => {
 
-    player1 = "";
-    player2 = "";
+//     player1 = "";
+//     player2 = "";
 
-}
+// }
 
 
