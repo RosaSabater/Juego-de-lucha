@@ -47,13 +47,13 @@ class Luchador {
 
 
 //nombre, vida, fuerza, defensa, suerte, imagen
-let Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "/img/daenerys2.png");
+let Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "../img/daenerys2.png");
 
-let Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "/img/arya2.png");
+let Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "../img/arya2.png");
 
-let Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "/img/joffrey1.png");
+let Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "../img/joffrey1.png");
 
-let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "/img/rey1.png");
+let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "../img/rey1.png");
 
 
 
@@ -281,13 +281,13 @@ const reset = () => {
     player2 = "";
 
 
-    Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "img/daenerys2.png");
+    Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "../img/daenerys2.png");
 
-    Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "img/arya2.png");
+    Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "../img/arya2.png");
 
-    Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "img/joffrey1.png");
+    Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "../img/joffrey1.png");
 
-    Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "img/rey1.png");
+    Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "../img/rey1.png");
 
 
     textoSeleccion.innerText = "Jugador 1, elige personaje";
