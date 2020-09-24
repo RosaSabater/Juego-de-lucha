@@ -33,6 +33,7 @@ class Luchador {
         }
         
         atacado.vida = atacado.vida - damage;
+        actBarrasVida();
         
         ganador();
 
@@ -91,7 +92,8 @@ const cambiaPantalla = (valor) => {
     });
  
     if (valor === 3) { //si estoy en la batalal de combate muestro pj
- 
+        
+        actBarrasVida();
         muestraPersonaje();
 
     };
@@ -313,3 +315,10 @@ const ganador = () => {
 
 }
 
+
+const actBarrasVida = () => {
+
+    document.getElementById("vidaJugador1").style.width = player1.vida + "%";
+    document.getElementById("vidaJugador2").style.width = player2.vida + "%";
+
+}
