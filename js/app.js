@@ -302,15 +302,15 @@ const ganador = () => {
     
     if (player1.vida <= 0) {
 
-        document.getElementById("ganador").src = player1.imagen;
-
-        document.getElementById("textoGanador").innerText = `${player1.nombre}`;
-  
-    } else {
-        
         document.getElementById("ganador").src = player2.imagen;
 
         document.getElementById("textoGanador").innerText = `${player2.nombre}`;
+  
+    } else {
+        
+        document.getElementById("ganador").src = player1.imagen;
+
+        document.getElementById("textoGanador").innerText = `${player1.nombre}`;
     }
 
 }
