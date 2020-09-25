@@ -2,10 +2,10 @@
     margin: 0;
 }
 
-/* audio { 
+audio { 
     position: absolute;
     visibility: hidden;
-} */
+}
 
 .seccionVisible {
     display: flex;

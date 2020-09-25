@@ -7,7 +7,8 @@
 // 15 commits como minimo
 
 
-
+document.querySelector('audio').click();
+document.querySelector('audio').play();
 
 class Luchador {
 
