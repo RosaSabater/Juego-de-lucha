@@ -45,6 +45,14 @@ class Luchador {
         ${damage} de daño`);
         
     }
+
+    luck = () => {
+
+        //  let suerte = this.suerte * atacado.suerte
+         
+         //¿¿¿¿¿¿ Math.floor(Math.random() * 101); ??????
+
+    }
     
 }
 
@@ -92,7 +100,8 @@ const cambiaPantalla = (valor) => {
         }
     });
  
-    if (valor === 3) { //si estoy en la batalal de combate muestro pj
+    if (valor === 3) { //si estoy en la batalal de combate actualizo barras de vida
+        //y muestro pj
         
         actBarrasVida();
         muestraPersonaje();
