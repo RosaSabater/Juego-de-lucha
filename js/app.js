@@ -7,6 +7,7 @@
 // 15 commits como minimo
 
 
+let textoSelBatalla = document.getElementById("textoSelBatalla");
 
 
 class Luchador {
@@ -21,12 +22,14 @@ class Luchador {
         
         this.imagen = imagen;
     }
-
+    
     //esto es un método ... empieza a atacar p1 a p2
     //la fuerza de p1 será la fuerza menos la defensa del p2
     golpear = (atacado) => {
         
-        let damage = this.fuerza - atacado.defensa;
+        let damage = this.fuerza - (atacado.defensa + atacado.suerte);
+
+        damage = damage + random(0, 21 + this.suerte)
         
         if (damage < 0) {
             damage = 0;
@@ -37,26 +40,32 @@ class Luchador {
         
         ganador();
 
-        let textoSelBatalla = document.getElementById("textoSelBatalla");
         textoSelBatalla.innerText = 
         (`${this.nombre} ataca a 
         ${atacado.nombre} y le hace 
         ${damage} de daño`);
-        
+      
     }
     
 }
 
+//devuelve un numero entre min y max (max excluido)
+const random = (min, max) => {
+    
+    return Math.floor(Math.random() * (max - min)) + min;
+
+} 
+
 
 
 //nombre, vida, fuerza, defensa, suerte, imagen
-let Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "img/daenerys2.png");
+let Daenerys = new Luchador ("Daenerys Targaryen", 100, 60, 20, 6, "img/daenerys2.png");
 
-let Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "img/arya2.png");
+let Arya = new Luchador ("Arya Stark", 100, 50, 40, 8, "img/arya2.png");
 
 let Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "img/joffrey1.png");
 
-let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "img/rey1.png");
+let Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 70, 50, 3, "img/rey1.png");
 
 
 
@@ -121,7 +130,8 @@ const cambiaPantalla = (valor) => {
 
 
 //creo una variable impar para golpear();
-let turno = 1;
+//esto daría un random entre 1 y 2 , porque el 3 está excluido
+let turno = random(1,3);
 
   
 
@@ -273,7 +283,7 @@ const muestraPersonaje = (ev) => {
     document.getElementById("imagenJugador2").src = player2.imagen;
     document.getElementById("nombreJugador2").innerText = player2.nombre;
     document.getElementById("vidaJugador2").innerText = player2.vida;
-
+    
 }
 
 
@@ -284,14 +294,17 @@ const reset = () => {
     player1 = "";
     player2 = "";
 
+    
+    textoSelBatalla.innerText = "";
 
-    Daenerys = new Luchador ("Daenerys Targaryen", 100, 70, 40, 8, "img/daenerys2.png");
 
-    Arya = new Luchador ("Arya Stark", 100, 50, 60, 10, "img/arya2.png");
+    Daenerys = new Luchador ("Daenerys Targaryen", 100, 60, 20, 6, "img/daenerys2.png");
 
+    Arya = new Luchador ("Arya Stark", 100, 50, 40, 8, "img/arya2.png");
+    
     Joffrey = new Luchador ("Joffrey Baratheon", 100, 10, 10, 1, "img/joffrey1.png");
-
-    Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 80, 30, 6, "img/rey1.png");
+    
+    Rey = new Luchador ("Rey de los Caminantes Blancos", 100, 70, 50, 3, "img/rey1.png");
 
 
     textoSeleccion.innerText = "Jugador 1, elige personaje";
@@ -322,3 +335,5 @@ const actBarrasVida = () => {
     document.getElementById("vidaJugador2").style.width = player2.vida + "%";
 
 }
+
+
