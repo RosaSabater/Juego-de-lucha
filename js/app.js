@@ -6,9 +6,11 @@
 //HMTL5, CSS3, JS ES6, ""API HTML"""
 // 15 commits como minimo
 
+document.querySelector('audio').click();
+document.querySelector('audio').play();
+
 
 let textoSelBatalla = document.getElementById("textoSelBatalla");
-
 
 class Luchador {
 
@@ -45,6 +47,14 @@ class Luchador {
         ${atacado.nombre} y le hace 
         ${damage} de daño`);
       
+    }
+
+    luck = () => {
+
+        //  let suerte = this.suerte * atacado.suerte
+         
+         //¿¿¿¿¿¿ Math.floor(Math.random() * 101); ??????
+
     }
     
 }
@@ -100,7 +110,8 @@ const cambiaPantalla = (valor) => {
         }
     });
  
-    if (valor === 3) { //si estoy en la batalal de combate muestro pj
+    if (valor === 3) { //si estoy en la batalal de combate actualizo barras de vida
+        //y muestro pj
         
         actBarrasVida();
         muestraPersonaje();
