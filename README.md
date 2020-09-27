@@ -4,7 +4,7 @@
 
 
 # ¿Qué es?
-Mi primer proyecto de JavaScript y se trata de un juego por turnos entre dos personajes de la serie de Game of Thrones.
+Mi primer proyecto de JavaScript, HTML5, CSS3 y trata de un juego por turnos entre dos personajes de la serie de Game of Thrones.
 
 # Personajes
 Se elige entre cuatro personajes: Arya Stark, Daenerys Targaryen, Joffrey Baratheon y el Rey de los Caminantes Blancos.</br>
