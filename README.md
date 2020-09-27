@@ -1,5 +1,5 @@
 # Game of Thrones - The Game ⚔
-[Pruébalo](https://rosasabater.github.io/Juego-de-lucha/)
+[Click aquí para probarlo](https://rosasabater.github.io/Juego-de-lucha/)
 
 
 
