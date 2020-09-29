@@ -48,14 +48,6 @@ class Luchador {
         ${damage} de daño`);
       
     }
-
-    luck = () => {
-
-        //  let suerte = this.suerte * atacado.suerte
-         
-         //¿¿¿¿¿¿ Math.floor(Math.random() * 101); ??????
-
-    }
     
 }
 
